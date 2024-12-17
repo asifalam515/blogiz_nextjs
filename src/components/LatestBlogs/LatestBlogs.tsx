@@ -1,4 +1,7 @@
-const LatestBlogs = ({ blogs }) => {
+import { Blog } from "@/types";
+import LatestBlogCard from "../ui/LatestBlogCard";
+
+const LatestBlogs = ({ blogs }: { blogs: Blog[] }) => {
   return (
     <div>
       <h1 className="text-4xl text-center m">
@@ -11,6 +14,11 @@ const LatestBlogs = ({ blogs }) => {
           dicta!
         </i>{" "}
       </p>
+      <div className="grid grid-cols-2 gap-4">
+        {blogs.map((blog) => (
+          <LatestBlogCard key={blog.id} blog={blog}></LatestBlogCard>
+        ))}
+      </div>
     </div>
   );
 };
